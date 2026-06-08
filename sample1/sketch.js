@@ -1,6 +1,6 @@
 function setup() {
   createCanvas(600, 400);
-  noLoop(); // 정적 화면이므로 루프를 정지하여 자원을 아낍니다.
+  noLoop(); 
 }
 
 function draw() {
@@ -27,7 +27,7 @@ function draw() {
   arc(0, 0, 350, 230, 1.5, 3.1);
   pop();
 
-  // 중심부 항성 배치 (정적 스케일)
+  // 중심부 항성 배치
   noStroke();
   fill("#1F2833");
   ellipse(300, 200, 280, 180); 
