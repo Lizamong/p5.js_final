@@ -1,45 +1,38 @@
 function setup() {
   createCanvas(600, 400);
-  background("#000000");
-  noLoop();
+  noLoop(); // 정적 화면이므로 루프를 정지하여 자원을 아낍니다.
 }
 
 function draw() {
+  background("#000000"); 
+
+  // 외곽 궤도 라인
+  push();
+  translate(300, 200);
   noFill();
   stroke("#1F2833");
   strokeWeight(2);
-  ellipse(300, 200, 550, 380);
+  ellipse(0, 0, 550, 380); 
+  pop();
 
+  // 중간 성운 레이어
+  push();
+  translate(300, 200);
+  noFill();
   stroke("#66FCF1");
   strokeWeight(4);
-  arc(300, 200, 450, 300, 4.7, 0); 
-  
+  arc(0, 0, 450, 300, 4.7, 0);  
   stroke("#45A29E");
   strokeWeight(6);
-  arc(300, 200, 350, 230, 1.5, 3.1);
+  arc(0, 0, 350, 230, 1.5, 3.1);
+  pop();
 
+  // 중심부 항성 배치 (정적 스케일)
   noStroke();
   fill("#1F2833");
-  ellipse(300, 200, 280, 180);
-  
+  ellipse(300, 200, 280, 180); 
   fill("#45A29E");
   ellipse(300, 200, 200, 130);
-  
   fill("#66FCF1");
   ellipse(300, 200, 120, 80);
-
-  stroke("#FFD700");
-  strokeWeight(1);
-  line(300, 150, 300, 250);
-  line(200, 200, 400, 200);
-
-  noStroke();
-  fill("#FF4500");
-  ellipse(300, 200, 60, 60); 
-
-  fill("#0077BE");
-  ellipse(80, 85, 25, 25); 
-
-  fill("#C0C0C0"); 
-  ellipse(115, 75, 10, 10); 
 }
