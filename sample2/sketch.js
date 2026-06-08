@@ -66,6 +66,6 @@ function draw() {
   textSize(20);
   textAlign(CENTER);
   text("ROKA", 300, 150);
-  
+
   noLoop();
 }
