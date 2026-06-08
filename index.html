@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>p5.js 작품 모음</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 24px;
+      background: #0f172a; /* 심미성을 높이기 위한 고급스러운 다크 실레이트 배경 */
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #38bdf8; /* 포인트 네온 블루 컬러 */
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+
+    #projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr; /* 명확한 2열 그리드 구조 */
+      width: 100%;
+      max-width: 800px;
+      gap: 20px; /* 시각적 밸런스를 위한 여백 조정 */
+    }
+
+    #projects .cell {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    /* 심미성 강화를 위한 카드 호버 모션 효과 */
+    #projects .cell:hover {
+      transform: translateY(-4px);
+      border-color: #38bdf8;
+    }
+
+    /* iframe 반응형 컨테이너 래퍼 (16:9 비율 최적화) */
+    .canvas-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000000;
+      overflow: hidden;
+      border-bottom: 1px solid #334155;
+    }
+
+    #projects .cell iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 600px;  /* p5.js 캔버스 기본 가로 해상도 크기 수용 */
+      height: 400px; /* p5.js 캔버스 기본 세로 해상도 크기 수용 */
+      border: none;
+      transform-origin: center center;
+      /* 카드 내부에 메인 스케치가 잘리지 않고 배치되도록 스케일 보정 축소 연산 */
+      transform: translate(-50%, -50%) scale(0.68); 
+    }
+
+    /* 작품 하단 캡션 정보 영역 */
+    .project-meta {
+      padding: 16px;
+    }
+
+    .project-meta .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    .badge.static { background: #1e3a8a; color: #60a5fa; }
+    .badge.dynamic { background: #581c87; color: #c084fc; }
+
+    .project-meta h3 {
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .project-meta p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>나의 p5.js 작품 포트폴리오</h1>
+    <p class="subtitle">웹사이트 접속 즉시 각 화면에서 동적·정적 레이아웃이 실시간 렌더링됩니다.</p>
+  </header>
+
+  <main id="projects">
+
+    <div class="cell">
+      <div class="canvas-container">
+        <iframe src="sample1/index.html" scrolling="no"></iframe>
+      </div>
+      <div class="project-meta">
+        <span class="badge static">Static Art</span>
+        <h3>과제 1: 태양계 구조 스케치</h3>
+        <p>기하학 프리미티브 함수를 다중 레이어로 중첩 연산하여 정적으로 구현한 태양계 시스템 구조</p>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="canvas-container">
+        <iframe src="sample4/index.html" scrolling="no"></iframe>
+      </div>
+      <div class="project-meta">
+        <span class="badge dynamic">Dynamic Art</span>
+        <h3>과제 4: Cosmic Wave Motion</h3>
+        <p>frameCount 파라미터와 삼각함수를 연동해 다차원 궤도의 공전 주기를 실시간 동적 구현한 루프</p>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="canvas-container">
+        <iframe src="sample2/index.html" scrolling="no"></iframe>
+      </div>
+      <div class="project-meta">
+        <span class="badge static">Static Art</span>
+        <h3>과제 2: ROKA 정적 포트레이트</h3>
+        <p>arc 및 ellipse 함수에 고정 수치 데이터를 지정 매핑하여 완성한 정적 군인 아트 아키텍처</p>
+      </div>
+    </div>
+
+    <div class="cell">
+      <div class="canvas-container">
+        <iframe src="sample3/index.html" scrolling="no"></iframe>
+      </div>
+      <div class="project-meta">
+        <span class="badge dynamic">Dynamic Art</span>
+        <h3>과제 3: ROKA 인터랙티브 캐릭터</h3>
+        <p>시스템 마우스 입력 좌표 추적 알고리즘과 map() 연산으로 관객 반응 무브먼트를 추가한 상호작용형 그래픽</p>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
